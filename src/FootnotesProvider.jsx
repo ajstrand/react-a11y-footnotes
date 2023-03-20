@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'preact/hooks'
 import { FootnotesContext } from './FootnotesRef'
 import { getIdFromTree } from './utils'
-export const FootnotesProvider = ({ children, footnotesTitleId }) => {
+const FootnotesProvider = ({ children, footnotesTitleId }) => {
   const [footnotes, setFootnotes] = useState(new Map())
   const getBaseId = useCallback(
     ({ id, children }) => id || getIdFromTree(children),
@@ -57,3 +57,5 @@ export const FootnotesProvider = ({ children, footnotesTitleId }) => {
 FootnotesProvider.defaultProps = {
   footnotesTitleId: 'footnotes-label',
 }
+
+export default FootnotesProvider

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 export const FootnotesContext = createContext({})
 
-export const FootnoteRef = props => {
+const FootnoteRef = props => {
   const { description } = props
   const {
     footnotes,
@@ -59,3 +59,5 @@ FootnoteRef.propTypes = {
   children: PropTypes.node.isRequired,
   id: PropTypes.string,
 }
+
+export default FootnoteRef

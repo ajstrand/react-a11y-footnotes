@@ -1,7 +1,7 @@
 import { useContext } from 'preact/hooks'
 import { FootnotesContext } from './FootnotesRef'
 
-export const Footnotes = props => {
+const Footnotes = props => {
   const { footnotes, footnotesTitleId } = useContext(FootnotesContext)
   const { Wrapper, Title, List, ListItem, BackLink } = props
 
@@ -36,3 +36,5 @@ Footnotes.defaultProps = {
   ListItem: 'li',
   BackLink: props => <a {...props}>↩</a>,
 }
+
+export default Footnotes;

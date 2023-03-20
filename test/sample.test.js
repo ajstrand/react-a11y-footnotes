@@ -1,7 +1,7 @@
 import { test, describe, expect } from 'vitest';
-import { FootnoteRef } from '../src/FootnotesRef'
-import { Footnotes } from '../src/Footnotes'
-import { FootnotesProvider } from '../src/FootnotesProvider'
+import FootnoteRef from '../src/FootnotesRef'
+import Footnotes from '../src/Footnotes'
+import FootnotesProvider from '../src/FootnotesProvider'
 import { getIdFromTree } from '../src/utils'
 
 import { render, configure, screen } from '@testing-library/preact'
