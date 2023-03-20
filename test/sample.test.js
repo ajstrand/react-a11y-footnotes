@@ -1,23 +1,26 @@
-import React from 'react'
-import { Footnotes, FootnotesProvider, FootnoteRef, getIdFromTree } from './'
-import { render, configure, screen } from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
+import { test, describe, expect } from 'vitest';
+import { FootnoteRef } from '../src/FootnotesRef'
+import { Footnotes } from '../src/Footnotes'
+import { FootnotesProvider } from '../src/FootnotesProvider'
+import { getIdFromTree } from '../src/utils'
+
+import { render, configure, screen } from '@testing-library/preact'
 
 configure({ testIdAttribute: 'id' })
 
 describe('The `getIdFromTree` helper', () => {
-  it('should handle strings', () => {
+  test('should handle strings', () => {
     expect(getIdFromTree('hi')).toEqual('hi')
   })
 
-  it('should handle trees', () => {
+  test('should handle trees', () => {
     expect(getIdFromTree(<>hi</>)).toEqual('hi')
     expect(getIdFromTree(<>hi i’m Kitty!</>)).toEqual('hi-im-kitty')
   })
 })
 
 describe('The `FootnoteRef` component', () => {
-  it('should render an anchor', () => {
+  test('should render an anchor', () => {
     render(
       <FootnotesProvider>
         <FootnoteRef description='CSS Counters are nice'>
@@ -31,7 +34,7 @@ describe('The `FootnoteRef` component', () => {
     expect(anchor).toHaveAttribute('href', '#css-counters-note')
   })
 
-  it('should use provided id if any', () => {
+  test('should use provided id if any', () => {
     render(
       <FootnotesProvider>
         <FootnoteRef description='CSS Counters are nice' id='foobar'>
@@ -46,7 +49,7 @@ describe('The `FootnoteRef` component', () => {
     expect(anchor).toHaveAttribute('role', 'doc-noteref')
   })
 
-  it('should provide styling capacities', () => {
+  test('should provide styling capacities', () => {
     render(
       <FootnotesProvider>
         <FootnoteRef
@@ -66,7 +69,7 @@ describe('The `FootnoteRef` component', () => {
 })
 
 describe('The `Footnotes` component', () => {
-  it('should render nothing if there are no footnotes', () => {
+  test('should render nothing if there are no footnotes', () => {
     const { container } = render(
       <FootnotesProvider>
         <Footnotes />
@@ -76,7 +79,7 @@ describe('The `Footnotes` component', () => {
     expect(container).toBeEmptyDOMElement()
   })
 
-  it('should render footnotes if any', () => {
+  test('should render footnotes if any', () => {
     render(
       <FootnotesProvider>
         <FootnoteRef description='CSS Counters are nice'>
@@ -90,7 +93,7 @@ describe('The `Footnotes` component', () => {
     screen.getByTestId('css-counters-note')
   })
 
-  it('should use provided `footnotesTitleId`', () => {
+  test('should use provided `footnotesTitleId`', () => {
     render(
       <FootnotesProvider footnotesTitleId='foobar'>
         <FootnoteRef description='CSS Counters are nice'>
@@ -105,7 +108,7 @@ describe('The `Footnotes` component', () => {
     expect(footnote).toHaveAttribute('aria-describedby', 'foobar')
   })
 
-  it('should provided styling capacity', () => {
+  test('should provided styling capacity', () => {
     render(
       <FootnotesProvider footnotesTitleId='foobar'>
         <FootnoteRef description='CSS Counters are nice'>
@@ -138,3 +141,7 @@ describe('The `Footnotes` component', () => {
     )
   })
 })
+
+// test('Testing sum', ()=> {
+//     expect(2+2).toBe(4)
+// });
