@@ -32,17 +32,17 @@
     "peer": "npm info . peerDependencies --json  | command sed 's/[\\{\\},]//g ; s/: /@/g' | xargs npm i --no-save"
   },
   "devDependencies": {
-    "@babel/cli": "^7.21.0",
-    "@babel/core": "^7.21.3",
-    "@babel/plugin-transform-react-jsx": "^7.21.0",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
-    "@preact/preset-vite": "^2.5.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/preact": "^3.2.3",
-    "jsdom":"^21.1.1",
-    "vite": "^4.2.0",
-    "vitest": "^0.27.3"
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/plugin-transform-react-jsx": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "@preact/preset-vite": "^2.9.1",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/preact": "^3.2.4",
+    "jsdom": "^21.1.1",
+    "vite": "^5.4.6",
+    "vitest": "^2.1.1"
   },
   "peerDependencies": {
     "preact": ">=10.0.0",
